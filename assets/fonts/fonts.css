@@ -1,0 +1,24 @@
+/*
+  ARKo — Brand Book
+  Tipografías auto-alojadas (subset latin).
+  Fuentes variables: un solo archivo cubre el rango de pesos 300–700.
+  Fuente original: Google Fonts (Space Grotesk, Inter) — SIL Open Font License.
+*/
+
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('./SpaceGrotesk-Variable.woff2') format('woff2-variations'),
+       url('./SpaceGrotesk-Variable.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('./Inter-Variable.woff2') format('woff2-variations'),
+       url('./Inter-Variable.woff2') format('woff2');
+}

@@ -1,0 +1,177 @@
+/* ============================================================
+   ARKo — Identidad de marca
+   Hoja única: logo real, paleta, tipografía, aplicaciones.
+   ============================================================ */
+
+@import url('./assets/fonts/fonts.css');
+
+/* ------------------------------------------------------------
+   1. DESIGN TOKENS
+   ------------------------------------------------------------ */
+:root{
+  --c-charcoal: #1C1C1C;
+  --c-warm-white: #F7F7F5;
+  --c-light-gray: #D6D7D7;
+  --c-slate: #5B708B;
+  --c-accent: #C45A2D;
+
+  --c-charcoal-80: rgba(28,28,28,.8);
+  --c-charcoal-40: rgba(28,28,28,.4);
+  --c-charcoal-12: rgba(28,28,28,.12);
+
+  --font-display: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+
+  --text-h1: clamp(2rem, 1.5rem + 2vw, 2.75rem);
+  --text-h2: clamp(1.3rem, 1.1rem + .8vw, 1.7rem);
+  --text-body: 1rem;
+  --text-small: 0.875rem;
+  --text-caption: 0.75rem;
+
+  --tr-tight: -0.02em;
+  --tr-wide: 0.14em;
+  --tr-wider: 0.2em;
+
+  --sp-1: .5rem;
+  --sp-2: 1rem;
+  --sp-3: 1.5rem;
+  --sp-4: 2rem;
+  --sp-6: 3rem;
+  --sp-8: 4rem;
+  --sp-10: 5rem;
+
+  --container-max: 1040px;
+  --margin: clamp(1.25rem, 4vw, 3rem);
+  --gap: clamp(.75rem, 1.6vw, 1.25rem);
+  --ease: cubic-bezier(.22,.68,0,1);
+}
+
+/* ------------------------------------------------------------
+   2. RESET
+   ------------------------------------------------------------ */
+*,*::before,*::after{ box-sizing: border-box; }
+*{ margin:0; }
+html{ -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{ animation-duration:.001ms !important; transition-duration:.001ms !important; }
+}
+body{
+  background: var(--c-warm-white);
+  color: var(--c-charcoal);
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img,svg{ display:block; max-width:100%; }
+a{ color:inherit; text-decoration:none; }
+button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; }
+h1,h2,h3{ font-family: var(--font-display); font-weight:600; line-height:1.1; letter-spacing:var(--tr-tight); }
+::selection{ background: var(--c-accent); color: var(--c-warm-white); }
+
+.t-eyebrow{
+  display:flex; align-items:center; justify-content:center; gap:.6em;
+  font-family:var(--font-body); font-weight:600; font-size:var(--text-caption);
+  letter-spacing:var(--tr-wider); text-transform:uppercase; color:var(--c-slate);
+}
+.t-eyebrow::before, .t-eyebrow::after{ content:''; width:22px; height:1px; background:currentColor; display:block; }
+
+.reveal{ opacity:0; transform: translateY(20px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+.reveal.is-visible{ opacity:1; transform:none; }
+
+/* ------------------------------------------------------------
+   3. PAGE / TOP
+   ------------------------------------------------------------ */
+.sheet{ max-width: var(--container-max); margin-inline:auto; padding-inline: var(--margin); }
+
+.top{ display:flex; justify-content:center; padding: var(--sp-4) 0 0; }
+.top__mark{ width:84px; height:auto; }
+
+/* ------------------------------------------------------------
+   4. HERO
+   ------------------------------------------------------------ */
+.hero{ text-align:center; padding: var(--sp-6) 0 var(--sp-8); }
+.hero__logo{ width:min(460px, 80%); margin-inline:auto; }
+.hero__tagline{
+  margin-top: var(--sp-3);
+  font-family:var(--font-body); font-weight:500;
+  font-size: var(--text-small);
+  letter-spacing: var(--tr-wider); text-transform:uppercase; color: var(--c-charcoal-40);
+}
+.hero__label{ margin-top: var(--sp-2); }
+
+/* ------------------------------------------------------------
+   5. VARIANTES DE LOGO
+   ------------------------------------------------------------ */
+.variants{ display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--c-charcoal-12); border:1px solid var(--c-charcoal-12); }
+.variant{ background:var(--c-warm-white); display:flex; flex-direction:column; align-items:center; justify-content:center; gap: var(--sp-3); padding: var(--sp-6) var(--sp-3); min-height:220px; }
+.variant--dark{ background:var(--c-charcoal); }
+.variant__img{ max-height:90px; width:auto; }
+.variant__label{ font-size:var(--text-caption); letter-spacing:var(--tr-wide); text-transform:uppercase; font-weight:600; color:var(--c-charcoal-80); }
+.variant--dark .variant__label{ color:rgba(247,247,245,.7); }
+@media (max-width:700px){ .variants{ grid-template-columns:1fr; } .variant{ min-height:170px; } }
+
+/* ------------------------------------------------------------
+   6. PALETA DE COLOR
+   ------------------------------------------------------------ */
+.section-title{ text-align:center; padding: var(--sp-8) 0 var(--sp-6); }
+.section-title h2{ margin-top: .8em; font-size:var(--text-h2); }
+
+.swatch-row{ display:flex; justify-content:center; flex-wrap:wrap; gap: var(--sp-6) var(--sp-4); padding-bottom: var(--sp-8); }
+.swatch{ display:flex; flex-direction:column; align-items:center; gap: var(--sp-2); cursor:pointer; border:0; background:none; width:120px; }
+.swatch__circle{ width:96px; height:96px; border-radius:50%; }
+.swatch__circle--outline{ border:1px solid var(--c-charcoal-12); }
+.swatch__name{ font-family:var(--font-display); font-weight:600; font-size:var(--text-small); }
+.swatch__hex{ font-size:var(--text-caption); color:var(--c-charcoal-40); font-variant-numeric:tabular-nums; }
+.swatch.is-copied .swatch__hex{ color:var(--c-accent); }
+.swatch.is-copied .swatch__hex::after{ content:' ✓ copiado'; }
+
+/* ------------------------------------------------------------
+   7. TIPOGRAFÍA
+   ------------------------------------------------------------ */
+.type-band{ background: var(--c-slate); color: var(--c-warm-white); padding: var(--sp-8) 0; }
+.type-band .section-title{ padding-top:0; }
+.type-band .t-eyebrow{ color: rgba(247,247,245,.7); }
+.type-grid{ display:grid; grid-template-columns:1fr 1fr; gap: var(--sp-6); }
+.type-sample{ text-align:center; }
+.type-sample__aa{ font-family: var(--type-font, var(--font-display)); font-size: clamp(3.5rem,10vw,6rem); line-height:1; }
+.type-sample--body .type-sample__aa{ --type-font: var(--font-body); font-weight:600; }
+.type-sample__name{ margin-top: var(--sp-2); font-weight:600; }
+.type-sample__abc{ margin-top:.4em; font-size:var(--text-caption); color:rgba(247,247,245,.65); letter-spacing:.02em; word-break:break-all; }
+@media (max-width:700px){ .type-grid{ grid-template-columns:1fr; gap: var(--sp-4); } }
+
+/* ------------------------------------------------------------
+   8. APLICACIONES (collage)
+   ------------------------------------------------------------ */
+.apps{ padding-bottom: var(--sp-10); }
+.app-collage{ display:grid; grid-template-columns:repeat(4,1fr); gap: var(--gap); }
+.app-collage > *{ min-width:0; }
+.app-tile{ display:flex; align-items:center; justify-content:center; grid-column:span 1; aspect-ratio:1; background:var(--c-light-gray); border:1px solid var(--c-charcoal-12); padding: var(--sp-3); min-width:0; }
+.app-tile > *{ min-width:0; }
+.app-tile--wide{ grid-column:span 2; aspect-ratio:4/3; }
+.app-tile--photo{ padding:0; overflow:hidden; }
+.app-tile--photo img{ width:100%; height:100%; object-fit:cover; }
+@media (max-width:700px){
+  .app-collage{ grid-template-columns:repeat(2,1fr); }
+  .app-tile--wide{ grid-column:span 2; }
+}
+
+/* ------------------------------------------------------------
+   9. FOOTER
+   ------------------------------------------------------------ */
+.footer{ text-align:center; padding: var(--sp-6) 0; border-top:1px solid var(--c-charcoal-12); }
+.footer__mark{ width:84px; height:auto; margin-inline:auto; }
+.footer p{ margin-top: var(--sp-2); font-size:var(--text-caption); letter-spacing:var(--tr-wide); text-transform:uppercase; color:var(--c-charcoal-40); }
+
+/* ------------------------------------------------------------
+   10. TOAST
+   ------------------------------------------------------------ */
+.toast{
+  position:fixed; bottom: var(--sp-4); left:50%; transform:translateX(-50%) translateY(calc(100% + 2rem));
+  opacity:0; pointer-events:none;
+  background:var(--c-charcoal); color:var(--c-warm-white); padding:.8em 1.4em;
+  font-size:var(--text-small); z-index:300;
+  transition: transform .4s var(--ease), opacity .4s var(--ease);
+}
+.toast.is-visible{ transform:translateX(-50%) translateY(0); opacity:1; }
